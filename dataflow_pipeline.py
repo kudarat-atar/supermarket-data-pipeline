@@ -8,7 +8,7 @@ from datetime import datetime
 
 PROJECT_ID = "project_id"
 DATASET = "sales_dw"
-INPUT_FILE = "gs://YOUR_BUCKET/supermarket_analysis.csv"
+INPUT_FILE = "gs://bucket_name/supermarket_analysis.csv"
 
 class ParseCSV(beam.DoFn):
     def process(self, element):
@@ -40,7 +40,7 @@ def run():
     pipeline_options = PipelineOptions(
         runner="DataflowRunner",
         project=PROJECT_ID,
-        temp_location="gs://YOUR_BUCKET/temp",
+        temp_location="gs://bucket_name/temp",
         region="us-central1",
         save_main_session=True,
     )
